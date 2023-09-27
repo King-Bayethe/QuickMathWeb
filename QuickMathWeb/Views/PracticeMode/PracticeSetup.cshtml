@@ -1,0 +1,364 @@
+﻿
+@{
+    ViewData["Title"] = "PracticeSetup";
+}
+
+<h1>Practice Mode</h1>
+<head>
+    <style>
+
+
+        .button-Start {
+            border-radius: 12px;
+            background-color: #4CAF50; /* Green */
+            font-size: 20px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .item1 {
+            grid-area: setup;
+            grid-template-areas: 'operation' 'range1' 'range2' 'start';
+            
+            width: 350px;
+            height: 400px;
+        }
+
+        .item2 {
+            grid-area: game;
+            display: grid;
+            grid-template-areas: 'correct total incorrect' 'streak response accuracy ' 'problem problem problem''skip . submit ' /*'a a a' */;
+            width: 400px;
+            height: 400px;
+        }
+
+        .item3 {
+            grid-area: log;
+            width: 350px;
+            height: 400px;
+        }
+
+        .item4 {
+            grid-area: correct;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item5 {
+            grid-area: incorrect;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item6 {
+            grid-area: total;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item7 {
+            grid-area: operation;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .item8 {
+            grid-area: range1;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item9 {
+            grid-area: range2;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item10 {
+            grid-area: start;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item11 {
+            grid-area: streak;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item12 {
+            grid-area: response;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item13 {
+            grid-area: accuracy;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item14 {
+            grid-area: problem;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item15 {
+            grid-area: skip;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item16 {
+            grid-area: submit;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas: 'setup game log';
+            gap: 10px;
+            padding: 10px;
+        }
+
+            .grid-container > div {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                padding: 20px;
+                font-size: 30px;
+            }
+
+        .grid-container {
+            /*display: grid;
+                    grid-template-rows: auto auto auto auto;
+                    grid-template-columns: auto auto;
+                    background-color: #2196F3;*/
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .gameBox {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding: 20px;
+            width: 800px;
+            height: 400px;
+        }
+
+        .grid-background {
+            display: grid;
+            grid-template-columns: 250px 550px 300px;
+            gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+            width: 1200px;
+            height: 400px;
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding: 20px;
+        }
+
+        .rcorners-Problems {
+            border-radius: 25px;
+            border: 2px solid red;
+            padding-top: 15px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+        }
+
+        .rangebox {
+            width: 165px;
+        }
+
+        .circle{
+            border-radius: 60%;
+            border: 2px solid ;
+            background: black;
+            color: white;
+            height: 55px;
+            width: 85px;
+            display: inline-block;
+            font-size: 30px;
+            padding:1px;
+        }
+        
+       
+    </style>
+    <style>
+        table, td, th {
+            border: 1px solid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    </style>
+    <style>
+        #correct {
+            border: 2px solid #73AD21;
+            background: #73AD21;
+            color: white;
+        }
+
+        #incorrect {
+            border: 2px solid red;
+            background: red;
+            color: white;
+        }
+
+        #response {
+            width:105px;
+        }
+    </style>
+</head>
+
+<body >
+    <div class ="grid-container">
+        <div class="item1 rcorners card">
+
+            <div class="card-header fw-bold border-primary">
+                Setup
+            </div>
+            <form class="card-body border-primary">
+
+
+                <div class="item7">
+                    <label>Operation</label>
+                    <select id="operation" class="form-control"></select>
+                </div>
+                <div class="item8">
+                    <label for="range1">Range 1:</label>
+                    <input type="number" id="range1" name="range1" class="rangebox"><br><br>
+                </div>
+                <div class="item9">
+                    <label for="range2">Range 2:</label>
+                    <input type="number" id="range2" name="range2" class="rangebox"><br><br>
+                </div>
+                <div class="item10">
+                    <input type="submit" class="button rangebox" value="Start">
+                </div>
+                    
+                    
+                    
+                    
+               
+
+            </form>
+        </div>
+        <div class="item2 rcorners">
+            <div class="item4 ">
+                <label id="correct" class="circle">
+                    5
+                </label>
+            </div>
+            <div class="item5 ">
+                <label id="incorrect" class="circle ">
+                    2
+                </label>
+            </div>
+            <div class="item6 ">
+                <label id="total" class="circle">
+                    7
+                </label>
+            </div>
+            <div class="item11">
+                <label id="streak" class="circle">
+                    600
+                </label>
+            </div>
+            <div class="item12">
+                <label id="response" class="circle ">
+                  right
+                </label>
+            </div>
+            <div class="item13">
+                <label id="accuracy" class="circle">
+                    100%
+                </label>
+            </div>
+            <div class="item14">
+                <form class="">
+                    <label>
+                        <label id="num1">
+                            55
+                        </label>
+                        <label id="operation">
+                            +
+                        </label>
+                        <label id="num2">
+                            55
+                        </label>
+                        =
+                        <input type="number" id="answerbox" name="range1">
+                    </label>
+                </form>
+            </div>
+            <div class="item15">
+                <button >
+                    SKIP
+                </button>
+            </div>
+            <div class="item16">
+                <button>
+                    SUBMIT
+                </button>
+            </div>
+        </div>
+        <div class="item3 rcorners card">
+
+            <div class="card-header fw-bold border-primary">
+                Log
+            </div>
+            <div class="card-body border-primary">
+                <table>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Answer</th>
+                    </tr>
+                    <tr>
+                        <td>100 + 300</td>
+                        <td>Griffin</td>
+                    </tr>
+                    <tr>
+                        <td>Lois</td>
+                        <td>Griffin</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    function myGeeks() {
+        document.getElementById('GFG').innerHTML
+            = 'A computer science portal for geeks';
+    }
+</script>
+<script>
+    var slider = document.getElementById("level");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>

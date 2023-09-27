@@ -1,0 +1,150 @@
+﻿@model QuickMathWeb.Models.GameModels.InfiniteMode
+
+@{
+    ViewData["Title"] = "InfiniteSetup";
+}
+<style>
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+    .button{
+        border-radius: 12px;
+        background-color: #4CAF50; /* Green */
+        font-size: 20px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        position: absolute;
+        
+        right: 25%;
+        bottom: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        display: block;
+    }
+
+    #rcorners2 {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding: 20px;
+        width: 250px;
+        height: 400px;
+    }
+
+</style>
+<h1>Setup</h1>
+
+<h2>InfiniteMode</h2>
+<hr />
+<div class="grid-container">
+    <div>
+        <div class="container">
+            <div class="card border-primary" id="rcorners2">
+                <div class="card-header fw-bold border-primary">
+                    Competitive Mode
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <form>
+                            <div class="mb-2">
+                                <label>Operation</label>
+                                <select id="operation" class="form-control"></select>
+                            </div>
+                            <div class="mb-2">
+                                <p>
+                                    <label for="level">Level:</label>
+                                    <span id="demo"></span>
+                                    <input type="range" id="level" name="level" step="1" min="0" max="100" class="slider" value="0">
+                                    
+                                
+                                </p>
+                                
+                                
+                                
+                                <input type="submit" class="button" value="Start">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <div class="container">
+            <div class="card border-primary" id="rcorners2">
+                <div class="card-header fw-bold border-primary">
+                    Infiinite Mode
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <form>
+                            <div class="mb-2">
+                                <label>Operation</label>
+                                <select id="operation" class="form-control"></select>
+                            </div>
+                            <div class="mb-2">
+                                <label>Difficulty</label>
+                                <select id="difficulty" class="form-control"></select>
+                            </div>
+
+                            <input type="submit" class="button" value="Start">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="card border-primary" id="rcorners2">
+                <div class="card-header fw-bold border-primary">
+                    Practice Mode
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <form>
+                            <div class="mb-2">
+                                <label>Operation</label>
+                                <select id="operation" class="form-control"></select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="range2">Range 1:</label>
+                                <input type="number" id="range1" name="range1"><br><br>
+                                <label for="range2">Range 2:</label>
+                                <input type="number" id="range2" name="range2"><br><br>
+                            </div>
+                            <input type="submit" class="button" value="Start">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script >
+    var slider = document.getElementById("level");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+}

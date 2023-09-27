@@ -1,0 +1,292 @@
+﻿@model QuickMathWeb.Models.GameModels.PracticeMode
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<style>
+    .gameBox {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding: 20px;
+        width: 800px;
+        height: 400px;
+    }
+    .grid-background {
+        display: grid;
+        grid-template-columns: 250px 550px 300px;
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+        width: 1200px;
+        height: 400px;
+    }
+    .grid-container1 {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+
+    .grid-container2 {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+
+    .grid-container3 {
+        display: grid;
+        grid-template-columns: auto auto 150px 150px;
+        padding: 10px;
+        background-color: #2196F3;
+        gap: 5px;
+    }
+
+    .button-Start {
+        border-radius: 12px;
+        background-color: #4CAF50; /* Green */
+        font-size: 20px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        position: relative;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        display: block;
+    }
+    .item1 {
+        grid-area: Correct;
+    }
+
+    .item2 {
+        text-align: center;
+        font-size: 25px;
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .item3 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .item4 {
+        text-align: center;
+        font-size: 25px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-areas: 'myArea myArea myArea myArea myArea';
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+        grid-template-columns: auto auto;
+        background-color: #2196F3;
+    }
+
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+
+    
+
+    .item9 {
+        
+    }
+
+    .item10 {
+        
+    }
+
+    .item11 {
+       
+    }
+
+    .item12 {
+     
+    }
+
+    .item13 {
+        position: fixed;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        padding-left: 25px;
+        margin-top: 0%;
+        margin-right: 0%;
+        margin-bottom: 0%;
+        margin-left: 0%;
+    }
+
+    .rcorners {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding: 20px;
+    }
+
+    .rcorners-Problems {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding-top: 15px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    .rangebox {
+        width: 165px;
+    }
+
+    .circle {
+        border-radius: 60%;
+        border: 2px solid #73AD21;
+        height: 55px;
+        width: 85px;
+        display:inline-block;
+        font-size:30px;
+        
+        
+    }
+
+    .progress {
+        margin-top: 100px;
+        margin-left: -50px;
+    }
+
+    nav ul {
+        height: 250px;
+        width: 240px;
+    }
+
+    nav ul {
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+</style>
+<body>
+    <div class="grid-background container">
+       
+           <div class="card border-primary grid-item container rcorners ">
+                <div class="card border-primary" id="rcorners2">
+                    <div class="card-header fw-bold border-primary">
+                        Competitive Mode
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <form>
+                                <div class="mb-2">
+                                    <label>Operation</label>
+                                    <select id="operation" class="form-control"></select>
+                                </div>
+                                <div class="mb-2">
+                                    
+                                    <label for="range1">Range 1:</label>
+                                    <input type="number" id="range1" name="range1" class="rangebox"><br><br>
+                                    <label for="range2">Range 2:</label>
+                                    <input type="number" id="range2" name="range2" class="rangebox"><br><br>
+
+
+                                    
+
+
+
+                                    <input type="submit" class="button" value="Start">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       
+        <div class="grid-item container rcorners grid-container">
+            <div class="grid-item grid-container1">
+                <label class="circle">
+                    55
+
+                </label>
+                <label>Wrong</label>
+                <label>
+                    Wrong
+
+                </label>
+            </div>
+            <div class="grid-item">
+                <form class="">
+                    <label>
+                        <label id="num1">
+                            55
+                        </label>
+                        <label id="operation">
+                            +
+                        </label>
+                        <label id="num2">
+                            55
+                        </label>
+                        =
+                        <input type="number" id="answerbox" name="range1">
+                    </label>
+                </form>
+            </div>
+            <div class="grid-item">
+            </div>
+        </div>
+        <div class="grid-item container card rcorners">
+            <div class="card-header">
+                <label>
+                    Practice Log
+                </label>
+                
+            </div>
+            <div class="card-body">
+                <nav>
+                    <ul>
+                        <li>Link 1</li>
+                        <li>Link 2</li>
+                        <li>Link 3</li>
+                        <li>Link 4</li>
+                        <li>Link 5</li>
+                        <li>Link 6</li>
+                        <li>Link 7</li>
+                        <li>Link 8</li>
+                        <li>Link 9</li>
+                        <li>Link 10</li>
+                        <li>Link 11</li>
+                        <li>Link 13</li>
+                        <li>Link 13</li>
+
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    function myGeeks() {
+        document.getElementById('GFG').innerHTML
+            = 'A computer science portal for geeks';
+    }
+</script>
+<script>
+    var slider = document.getElementById("level");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>
+@{
+}

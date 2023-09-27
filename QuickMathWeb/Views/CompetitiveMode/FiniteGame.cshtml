@@ -1,0 +1,318 @@
+﻿@model QuickMathWeb.Models.GameModels.FiniteMode
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<head>
+    <style>
+        .gameBox {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding: 20px;
+            width: 800px;
+            height: 400px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto auto 100px;
+            background-color: #2196F3;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+
+        .grid-container1 {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: auto auto 150px 150px;
+            padding: 10px;
+            background-color: #2196F3;
+            gap: 5px;
+        }
+
+        .button-Start {
+            border-radius: 12px;
+            background-color: #4CAF50; /* Green */
+            font-size: 20px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .itemgrid7 {
+            grid-column: 1 / span 2;
+        }
+
+        .itemgrid8 {
+            grid-column: 3 / span 2;
+        }
+
+        .itemgrid9 {
+            grid-column: 1 / span 2;
+        }
+
+        .item1 {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item2 {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item3 {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item4 {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item9 {
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            font-size: 25px;
+            margin-top: 0%;
+            margin-right: 0%;
+            margin-bottom: 0%;
+            margin-left: 0%;
+        }
+
+        .item10 {
+            position: relative;
+            padding-top: 5px;
+            padding-right: 0px;
+            padding-bottom: 5px;
+            padding-left: 0px;
+            margin-top: 0%;
+            margin-right: 0%;
+            margin-bottom: -30%;
+            margin-left: 0%;
+        }
+
+        .item11 {
+            position: relative;
+            padding-top: 5px;
+            padding-right: 0px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            margin-top: 0%;
+            margin-right: 0%;
+            margin-bottom: -10%;
+            margin-left: 0%;
+        }
+
+        .item12 {
+            position: relative;
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            margin-top: 10%;
+            margin-right: 0%;
+            margin-bottom: 0%;
+            margin-left: -10%;
+        }
+
+        .item13 {
+            position: fixed;
+            padding-top: 25px;
+            padding-right: 25px;
+            padding-bottom: 25px;
+            padding-left: 25px;
+            margin-top: 0%;
+            margin-right: 0%;
+            margin-bottom: 0%;
+            margin-left: 0%;
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding: 20px;
+        }
+
+        .rcorners-Problems {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding-top: 15px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+        }
+
+        .rcorners-Operation {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            padding-top: 15px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+        }
+
+        .rcorners-Level {
+            border-radius: 25px;
+            border: 2px solid #73AD21;
+            position: relative;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px; /*
+                margin-top: 0%;
+                margin-right: 0%;
+                margin-bottom: 0%;
+                margin-left: 0%; */
+        }
+
+        .progress {
+            margin-top: 100px;
+            margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+   <div>
+       <div class="container">
+            <div class="card border-primary gameBox grid-container" >
+                <div class="grid-item grid-container1">
+                    <div class="grid-item itemgrid7 rcorners">
+                        <div class="item1">
+                            <label for="score">
+                                Score:
+                                <label id="score">
+                                    5500
+                                </label>
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="grid-item itemgrid8 rcorners">
+                        <div class="item2">
+                            <label>
+                                <label id="hours">
+                                    00
+                                </label>
+                                :
+                                <label id="minutes">
+                                    00
+                                </label>
+                                :
+                                <label id="seconds">
+                                    00
+                                </label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item grid-container2">
+                    
+                    <div class="grid-item itemgrid9 rcorners">
+                        <form class="item9">
+                            <label>
+                                <label id="num1">
+                                    55
+                                </label>
+                                <label id="operation">
+                                    +
+                                </label>
+                                <label id="num2">
+                                    55
+                                </label>
+                                =
+                                <input type="number" id="answerbox" name="range1">
+                            </label>
+                        </form>
+                        
+                    </div>
+                    <div class="grid-item rcorners">
+                        <div class="item4 ">
+                            <label>
+                                
+                                <label  for="problemsCount">
+                                    550
+                                </label><br />
+                                <progress max=100
+                                          min=0
+                                          value=90 id="problemsCount" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <form class="grid-item grid-container3" id="setup">
+
+                    <div class="grid-item rcorners">
+                        <div class="item10 ">
+                            <select id="operation" class="form-control" form="setup"></select>
+                            <label>Operation</label>
+                        </div>
+                        
+                    </div>
+                    <div class="grid-item rcorners">
+                        <div class="item11  ">
+                            <select id="problems" class="form-control" form="setup"></select>
+                            <label>Problems</label>
+                        </div>
+                    </div>
+                    <div class="grid-item rcorners">
+                        <div class="item12" >
+                            
+                            <input type="range" id="level" name="level" step="1" min="0" max="100" class="slider" value="0"><br />
+                            <label for="level">Level:</label>
+                            <span id="demo"></span>
+                        </div>
+                        
+                    </div>
+                    <input type="submit" class="button-Start grid-item" value="Start">
+                </form>
+           </div>
+       </div>
+   </div>
+    
+</body>
+<script>
+    function myGeeks() {
+        document.getElementById('GFG').innerHTML
+            = 'A computer science portal for geeks';
+    }
+</script>
+<script>
+    var slider = document.getElementById("level");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>
+@{
+}
